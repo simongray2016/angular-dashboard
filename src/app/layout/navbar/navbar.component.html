@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <ul class="navbar-menu" nz-menu nzMode="horizontal" nzTheme="dark">
+    <li class="navbar-menu-item user">
+      <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="bottomRight">
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+      </a>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul id="user-dropdown" nz-menu nzTheme="dark">
+          <li nz-menu-item>
+            <a href="#">
+              <i nz-icon nzType="profile" nzTheme="outline"></i>
+              <span>Profile</span>
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="#">
+              <i nz-icon nzType="login" nzTheme="outline"></i>
+              <span>Log in</span>
+            </a>
+          </li>
+          <li nz-menu-item>
+            <a href="#">
+              <i nz-icon nzType="logout" nzTheme="outline"></i>
+              <span>Log out</span>
+            </a>
+          </li>
+        </ul>
+      </nz-dropdown-menu>
+    </li>
+  </ul>
+</nav>
+

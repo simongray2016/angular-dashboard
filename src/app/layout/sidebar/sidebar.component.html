@@ -1,0 +1,16 @@
+<div class="sidebar">
+  <ul class="sidebar-menu" nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+    <li nz-menu-item nzMatchRouterExact nzTitle="Dashboard">
+      <a [routerLink]="['/dashboard']">
+        <i nz-icon nzType="home" nzTheme="outline"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li nz-menu-item nzTitle="User">
+      <a [routerLink]="['/user']">
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+        <span>User</span>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  &-menu {
+    width: 260px;
+    height: 100vh;
+  }
+}
