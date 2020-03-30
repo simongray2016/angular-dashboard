@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Location } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  name: string
+
+  constructor(private router: Router, private location: Location) {
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      if (this.location.path().includes('/dashboard')) {
+        this.name = 'Corona Live';
+      } else if (this.location.path().includes('/user')) {
+        this.name = 'Profile';
+      }
+    });
+  }
 
   ngOnInit() {
   }
-
 }

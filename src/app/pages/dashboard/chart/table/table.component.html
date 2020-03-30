@@ -1,0 +1,36 @@
+<div class="card dark table">
+  <nz-card>
+    <h4>Affected Countries</h4>
+    <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input [(ngModel)]="inputText" (keyup)="showResult()" type="text" nz-input placeholder="Search country"/>
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <i nz-icon nzType="search" nzTheme="outline"></i>
+    </ng-template>
+    <nz-table
+      #filterTable
+      [nzData]="data$ | async"
+      [nzFrontPagination]="false"
+      [nzScroll]="{ y: '240px' }"
+    >
+      <thead nzSingleSort (nzSortChange)="sort($event)">
+        <tr>
+          <th nzShowSort nzSortKey="country" nzWidth="114px">Country</th>
+          <th nzShowSort nzSortKey="cases" nzWidth="95px">Cases</th>
+          <th nzShowSort nzSortKey="todayCases">Today cases</th>
+          <th nzShowSort nzSortKey="deaths">Deaths</th>
+          <th nzShowSort nzSortKey="todayDeaths">Today deaths</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of filterTable.data">
+          <td>{{ data.country }}</td>
+          <td>{{ data.cases | number}}</td>
+          <td>+{{ data.todayCases | number}}</td>
+          <td>{{ data.deaths | number}}</td>
+          <td>+{{ data.todayDeaths | number}}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-card>
+</div>

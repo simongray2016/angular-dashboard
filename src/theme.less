@@ -6,7 +6,7 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: #5F57CB;
+@primary-color: #5C53C6;
 @info-color: @blue-6;
 @success-color: @green-6;
 @processing-color: @blue-6;
@@ -38,24 +38,24 @@
 // Background color for `<body>`
 @body-background: #fff;
 // Base background color for most components
-@component-background: #fff;
+@component-background: #10163A;
 @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
 'Segoe UI Emoji', 'Segoe UI Symbol';
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 65%);
-@text-color-secondary: fade(@black, 45%);
-@text-color-inverse: @white;
+@text-color: @white;
+@text-color-secondary: @white;
+@text-color-inverse:  fade(@black, 65%);
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
-@heading-color: fade(#000, 85%);
+@heading-color: @white;
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
-@font-size-base: 14px;
+@font-size-base: 16px;
 @font-size-lg: @font-size-base + 2px;
 @font-size-sm: 12px;
 @heading-1-size: ceil(@font-size-base * 2.71);
@@ -78,16 +78,16 @@
 
 // The background colors for active and hover states for things like
 // list items or table cells.
-@item-active-bg: @primary-1;
-@item-hover-bg: @primary-1;
+@item-active-bg: @primary-color;
+@item-hover-bg: @primary-color;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
 
 // LINK
-@link-color: @primary-color;
-@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
-@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
+@link-color: @white;
+@link-hover-color: @primary-color;
+@link-active-color: @white;
 @link-decoration: none;
 @link-hover-decoration: none;
 
@@ -108,9 +108,9 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
-@border-color-split: hsv(0, 0, 91%); // split border inside a component
-@border-color-inverse: @white;
+@border-color-base: transparent; // base border outline a component
+@border-color-split: transparent; // split border inside a component
+@border-color-inverse: transparent;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
 
@@ -119,7 +119,7 @@
 @outline-width: 2px;
 @outline-color: @primary-color;
 
-@background-color-light: hsv(0, 0, 98%); // background of header and selected item
+@background-color-light: transparent; // background of header and selected item
 @background-color-base: hsv(0, 0, 96%); // Default grey background color
 
 // Disabled states
@@ -316,7 +316,7 @@
 @input-padding-vertical-lg: 6px;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
-@input-border-color: @border-color-base;
+@input-border-color: #fff;
 @input-bg: @component-background;
 @input-number-handler-active-bg: #f4f4f4;
 @input-number-handler-hover-bg: @primary-5;
@@ -395,8 +395,8 @@
 @menu-bg: @component-background;
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
-@menu-highlight-color: @primary-color;
-@menu-item-active-bg: @item-active-bg;
+@menu-highlight-color: @white;
+@menu-item-active-bg: @primary-color;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-icon-size: @font-size-base;
@@ -431,9 +431,9 @@
 // --
 @table-header-bg: @background-color-light;
 @table-header-color: @heading-color;
-@table-header-sort-bg: @background-color-base;
+@table-header-sort-bg: @background-color-light;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
-@table-row-hover-bg: @primary-1;
+@table-row-hover-bg: @primary-color;
 @table-selected-row-color: inherit;
 @table-selected-row-bg: #fafafa;
 @table-body-selected-sort-bg: @table-selected-row-bg;
@@ -488,7 +488,7 @@
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
-@card-radius: @border-radius-sm;
+@card-radius: @border-radius-base;
 
 // Comment
 // ---

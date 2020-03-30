@@ -1,1 +1,71 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="row" nz-row nzGutter="30">
+    <div nz-col nzSpan="6">
+      <app-card
+        titleCard="Infections"
+        [dataInput]="total.cases"
+        [moreData]="total.todayCases"
+        [loading]="loading"
+      >
+      </app-card>
+    </div>
+    <div nz-col nzSpan="6">
+      <app-card
+        titleCard="Deaths"
+        [dataInput]="total.deaths"
+        [moreData]="total.todayDeaths"
+        [loading]="loading"
+      >
+      </app-card>
+    </div>
+    <div nz-col nzSpan="6">
+      <app-card
+        titleCard="Recoveries"
+        [dataInput]="total.recovered"
+        [moreData]="total.active"
+        [loading]="loading"
+      >
+      </app-card>
+    </div>
+    <div nz-col nzSpan="6">
+      <app-card
+        titleCard="Criticals"
+        [dataInput]="total.critical"
+        [moreData]="total.casesPerOneMillion"
+        [loading]="loading"
+      >
+      </app-card>
+    </div>
+  </div>
+  <div class="row" nz-row nzGutter="30">
+    <div nz-col nzSpan="16">
+      <app-line-chart
+        titleCard="Infections History"
+        [destroy$]="destroy$"
+      >
+      </app-line-chart>
+    </div>
+    <div nz-col nzSpan="8">
+      <app-pipe-chart
+        titleCard="Rate Distribution"
+        [dataInput$]="dataPipeChart$"
+        [destroy$]="destroy$"
+      >
+      </app-pipe-chart>
+    </div>
+  </div>
+  <div nz-row nzGutter="30">
+    <div nz-col nzSpan="10">
+      <app-pipe-gird-chart
+        [destroy$]="destroy$"
+      >
+      </app-pipe-gird-chart>
+    </div>
+    <div nz-col nzSpan="14">
+      <app-table
+        [destroy$]="destroy$"
+      >
+      </app-table>
+    </div>
+  </div>
+</div>

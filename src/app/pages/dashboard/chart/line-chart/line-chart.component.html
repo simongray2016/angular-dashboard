@@ -1,0 +1,17 @@
+<div class="card dark">
+  <nz-card>
+    <h4>{{titleCard}}</h4>
+    <ngx-charts-line-chart
+      [view]="[630,300]"
+      [customColors]="customColors"
+      [legend]="true"
+      [legendPosition]="'below'"
+      [legendTitle]="''"
+      [xAxis]="true"
+      [yAxis]="true"
+      [roundDomains]="true"
+      [results]="data"
+    >
+    </ngx-charts-line-chart>
+  </nz-card>
+</div>

@@ -1,11 +1,14 @@
 <nav class="navbar">
-  <ul class="navbar-menu" nz-menu nzMode="horizontal" nzTheme="dark">
+  <ul class="navbar-menu" nz-menu nzMode="horizontal">
+    <li class="navbar-menu-item text_title">
+      <span>{{name}}</span>
+    </li>
     <li class="navbar-menu-item user">
       <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="bottomRight">
         <i nz-icon nzType="user" nzTheme="outline"></i>
       </a>
       <nz-dropdown-menu #menu="nzDropdownMenu">
-        <ul id="user-dropdown" nz-menu nzTheme="dark">
+        <ul id="user-dropdown" nz-menu>
           <li nz-menu-item>
             <a href="#">
               <i nz-icon nzType="profile" nzTheme="outline"></i>
