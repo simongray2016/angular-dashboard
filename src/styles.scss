@@ -12,8 +12,12 @@ body {
   h2 {
     margin: 0;
   }
-  span {
+  .more-data {
     color: darken($color: White, $amount: 50);
+  }
+
+  i {
+    color: white !important;
   }
 
   &-line-chart {
@@ -213,5 +217,42 @@ body {
   .number-card .number-card-label {
     font-size: 0.8em;
     color: $color-text-med;
+  }
+}
+
+.full-page {
+  position: relative;
+  height: 100vh;
+
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .welcome {
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .log-field {
+      margin-top: 10px;
+    }
+
+    .register-form-button {
+      color: #5C53C6;
+    }
+
+    .go-back {
+      font-size: 14px;
+      transition: all 0.3s;
+      &:hover {
+        i {
+          color: #5C53C6 !important;
+        }
+        text-decoration: underline;
+      }
+    }
+
   }
 }

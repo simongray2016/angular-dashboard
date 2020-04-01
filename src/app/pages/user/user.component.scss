@@ -1,0 +1,21 @@
+.user {
+  .card {
+    .title {
+      margin-bottom: 30px;
+    }
+    .avatar {
+      display: flex;
+      align-items: flex-start;
+      &_img {
+        width: 100px;
+        height: 100px;
+        margin-right: 30px;
+        border-radius: 3px;
+      }
+    }
+
+    .save_btn {
+      margin-right: 30px;
+    }
+  }
+}

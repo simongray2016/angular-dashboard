@@ -1,1 +1,50 @@
-<p>user works!</p>
+<div class="card" *ngIf="!user">
+  <nz-card>
+    <span>You must be logged in!</span>
+  </nz-card>
+</div>
+
+<div class="user" *ngIf="user">
+  <div class="card">
+    <nz-card >
+      <h4 class="title">
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+        Profile
+      </h4>
+      <div class="avatar">
+        <img class="avatar_img" src="https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/demo-1/img/avatar-s-3.7ed1da4a.jpg" alt="">
+        <h3>{{user.displayName}}</h3>
+      </div>
+      <div class="user-profile">
+        <form nz-form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+          <div nz-row nzGutter="30">
+            <div nz-col nzSpan="12">
+              <nz-form-item>
+                <nz-form-label nzFor="email">Name</nz-form-label>
+                <nz-form-control nzErrorTip="The input is not valid name">
+                  <input nz-input formControlName="name" id="name" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+              <nz-form-item>
+                <nz-form-label nzFor="email">Email</nz-form-label>
+                <nz-form-control>
+                  <input nz-input formControlName="email" id="email" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+            <div nz-col nzSpan="12">
+              <nz-form-item>
+                <div>
+                  <button type="submit" class="save_btn" nz-button [nzType]="'primary'" [nzLoading]="loading">Save changes</button>
+                  <button nz-button nzType="danger" (click)="reset($event)" nzGhost>Reset</button>
+                </div>
+              </nz-form-item>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nz-card>
+  </div>
+</div>

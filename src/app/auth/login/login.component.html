@@ -1,0 +1,60 @@
+<div class="full-page" nz-row>
+  <div class="card" nz-col nzSpan="7">
+    <nz-card>
+      <h4>Login</h4>
+      <span class="welcome">Welcome back, please login to your account.</span>
+      <form nz-form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="emailErrorTpl">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="email" nz-input formControlName="email" placeholder="Email" />
+            </nz-input-group>
+            <ng-template #emailErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('email')">
+                The input is not valid E-mail!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your E-mail!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="passwordErrorTpl">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+            <ng-template #passwordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your password!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <div nz-row nzType="flex" nzJustify="space-between">
+              <label nz-checkbox formControlName="remember">
+                <span>Remember me</span>
+              </label>
+              <a class="login-form-forgot">Forgot password</a>
+            </div>
+            <div class="log-field" nz-row nzType="flex" nzJustify="space-between">
+              <button type="submit" nz-button class="login-form-button" [nzType]="'primary'" [nzLoading]="loading">Log in</button>
+
+                <a [routerLink]="['/auth/register']">
+                  <button nz-button class="register-form-button" [nzType]="'default'">
+                    Register
+                  </button>
+                </a>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <a class="go-back" (click)="goBack()">
+        <i nz-icon nzType="left"></i>
+        Go back
+      </a>
+    </nz-card>
+  </div>
+</div>

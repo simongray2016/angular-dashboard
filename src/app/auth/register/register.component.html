@@ -1,0 +1,87 @@
+<div class="full-page" nz-row>
+  <div class="card" nz-col nzSpan="7">
+    <nz-card>
+      <h4>Create Acount</h4>
+      <form nz-form [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)">
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="nameErrorTpl">
+              <input type="text" nz-input formControlName="name" placeholder="Name" />
+            <ng-template #nameErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your name!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="emailErrorTpl">
+              <input type="email" nz-input formControlName="email" placeholder="Email" />
+            <ng-template #emailErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('email')">
+                The input is not valid E-mail!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your E-mail!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="passwordErrorTpl">
+            <input
+              type="password"
+              nz-input formControlName="password"
+              placeholder="Password"
+              minlength="6"
+              [(ngModel)]="password"
+            />
+            <ng-template #passwordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your password!
+              </ng-container>
+              <ng-container *ngIf="control.errors.minlength">
+                Password should be at least 6 characters!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzErrorTip]="checkPasswordErrorTpl">
+              <input type="password" nz-input formControlName="checkPassword" placeholder="Comfirm password" />
+            <ng-template #checkPasswordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Please input your comfirm password!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">
+                Two passwords that you enter is inconsistent!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row class="register-area">
+          <nz-form-control>
+            <label nz-checkbox formControlName="agree">
+              <span>I have read the agreement</span>
+            </label>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <div class="log-field" nz-row nzType="flex" nzJustify="space-between">
+              <button type="submit" nz-button class="login-form-button" [nzType]="'primary'" [nzLoading]="loading">Register</button>
+              <a [routerLink]="['/auth/login']">
+                <button nz-button class="register-form-button" [nzType]="'default'">
+                    Log in
+                </button>
+              </a>
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <a class="go-back" (click)="goBack()">
+        <i nz-icon nzType="left"></i>
+        Go back
+      </a>
+    </nz-card>
+  </div>
+</div>
