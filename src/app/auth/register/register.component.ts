@@ -23,23 +23,23 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(user: {email: string, password: string, name: string,}) {
-    if (this.formRegister.valid) {
-      this.loading = true;
-      this.authService.register(user.email, user.password)
-        .then(() => {
-          this.loading = false;
-          this.message.create('success', 'Register success');
-          this.authService.login(user.email, user.password)
-            .then(() => {
-              this.router.navigate(['pages/user']);
-              this.authService.updateProfile(user.name, null);
-            });
-        })
-        .catch(() => {
-          this.loading = false;
-          this.message.create('error', 'Register fail');
-        });
-    }
+    // if (this.formRegister.valid) {
+    //   this.loading = true;
+    //   this.authService.register(user.email, user.password)
+    //     .then(() => {
+    //       this.loading = false;
+    //       this.message.create('success', 'Register success');
+    //       this.authService.login(user.email, user.password)
+    //         .then(() => {
+    //           this.router.navigate(['pages/user']);
+    //           this.authService.updateProfile(user.name, null);
+    //         });
+    //     })
+    //     .catch(() => {
+    //       this.loading = false;
+    //       this.message.create('error', 'Register fail');
+    //     });
+    // }
   }
 
   goBack() {

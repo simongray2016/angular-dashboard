@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Location } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { AuthService } from 'src/app/auth/auth.service';
+import { DataUserService } from 'src/app/services/data-user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,12 +13,14 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class NavbarComponent implements OnInit {
 
   name: string;
-  user: any;
+  username: string;
+  user: any = null;
 
   constructor(
     private router: Router,
     private location: Location,
-    private authService: AuthService
+    private authService: AuthService,
+    private dataUserService: DataUserService
     ) {
     this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
       if (this.location.path().includes('/dashboard')) {
@@ -29,11 +32,16 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.authService.user$.subscribe(user => this.user = user);
+    this.dataUserService.getAllUser().subscribe(user => {
+      if (user instanceof Object) {
+        console.log(user);
+        this.user = user;
+        this.username = user.username;
+      }
+    });
   }
 
   logOut() {
-    this.authService.logout()
-      .then(() => this.router.navigate(['auth/login']));
+    this.authService.logout();
   }
 }

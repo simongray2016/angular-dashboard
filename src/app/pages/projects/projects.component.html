@@ -1,0 +1,15 @@
+<div class="projects">
+  <h3>All project</h3>
+  <h4 *ngIf="loading">Loading <i nz-icon nzType="loading" nzTheme="outline"></i></h4>
+  <div *ngFor="let project of projects">
+    <ul>
+      <li>Name: {{project.name}}</li>
+      <li>Description: {{project.description}}</li>
+      <li>Note: {{project.note}}</li>
+      <li>Create Time: {{project.createTime}}</li>
+      <li>UpdateTime: {{project.updateTime}}</li>
+    </ul>
+    <br>
+    <hr>
+  </div>
+</div>

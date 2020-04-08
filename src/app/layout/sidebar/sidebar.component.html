@@ -1,15 +1,20 @@
 <div class="sidebar">
   <ul class="sidebar-menu" nz-menu nzMode="inline">
-    <li nz-menu-item nzMatchRouterExact nzTitle="Dashboard">
-      <a [routerLink]="['/pages/dashboard']">
+    <li nz-menu-item nzMatchRouterExact nzTitle="Dashboard" class="sidebar-item">
+      <a class="link" [routerLink]="['/pages/dashboard']" routerLinkActive="active">
         <i nz-icon nzType="home" nzTheme="outline"></i>
         <span>Dashboard</span>
       </a>
     </li>
-    <li nz-menu-item nzTitle="User">
-      <a [routerLink]="['/pages/user']">
+    <li nz-menu-item nzTitle="User" class="sidebar-item">
+      <a class="link" [routerLink]="['/pages/user']" routerLinkActive="active">
         <i nz-icon nzType="user" nzTheme="outline"></i>
         <span>User</span>
+      </a>
+    </li>
+    <li nz-menu-item nzTitle="User" class="sidebar-item">
+      <a class="link" [routerLink]="['/pages/projects']" routerLinkActive="active">
+        <span>Projects</span>
       </a>
     </li>
   </ul>

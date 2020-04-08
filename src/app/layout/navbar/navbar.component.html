@@ -4,14 +4,14 @@
       <span>{{name}}</span>
     </li>
     <li class="navbar-menu-item user">
-      <p class="user-name " *ngIf="user">{{user.displayName}}</p>
+      <p class="user-name " *ngIf="username">{{username}}</p>
       <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu" nzPlacement="bottomRight">
         <i nz-icon nzType="user" nzTheme="outline"></i>
       </a>
       <nz-dropdown-menu #menu="nzDropdownMenu">
         <ul id="user-dropdown" nz-menu>
           <li nz-menu-item *ngIf="user">
-            <a href="#">
+            <a routerLink="/pages/user">
               <i nz-icon nzType="profile" nzTheme="outline"></i>
               <span>Profile</span>
             </a>

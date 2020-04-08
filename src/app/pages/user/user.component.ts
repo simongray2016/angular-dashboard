@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { DataUserService } from 'src/app/services/data-user.service';
 
 @Component({
   selector: 'app-user',
@@ -12,16 +13,21 @@ export class UserComponent implements OnInit {
 
   user: any;
   name: string | null = '';
+  username: string;
+  role: string;
   form: FormGroup;
   loading = false;
+  loadingUser = false;
 
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private dataUserService: DataUserService
     ) {}
 
   ngOnInit() {
+    this.loadingUser = true;
     this.authService.user$.subscribe(user => {
       if (user) {
         this.user = user;
@@ -29,8 +35,19 @@ export class UserComponent implements OnInit {
           name: [user.displayName, [Validators.required]],
           email: [user.email]
         });
+        this.dataUserService.getAllUser().subscribe(u => {
+          this.loadingUser = false;
+          this.username = u['username'];
+          this.role = u['role'];
+          },
+          err => {
+            this.loadingUser = false;
+            console.log(err);
+          }
+        );
       }
     });
+
   }
 
   onSubmit(user: {name: string}) {

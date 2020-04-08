@@ -13,7 +13,13 @@
       </h4>
       <div class="avatar">
         <img class="avatar_img" src="https://pixinvent.com/demo/vuexy-vuejs-admin-dashboard-template/demo-1/img/avatar-s-3.7ed1da4a.jpg" alt="">
-        <h3>{{user.displayName}}</h3>
+        <div class="user-info" *ngIf="!loadingUser;else loadingTpl">
+          <h3>{{username}}</h3>
+          <h4>Role: {{role}}</h4>
+        </div>
+        <ng-template #loadingTpl>
+          <h4>Loading <i nz-icon nzType="loading" nzTheme="outline"></i></h4>
+        </ng-template>
       </div>
       <div class="user-profile">
         <form nz-form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">

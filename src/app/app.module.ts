@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { JwtInterceptorProviders } from './auth/jwt.interceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import en from '@angular/common/locales/en';
+import { ErrorInterceptorProviders } from './auth/error.interceptor';
 
 registerLocaleData(en);
 
@@ -32,6 +34,6 @@ registerLocaleData(en);
     AppRoutingModule
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: NZ_I18N, useValue: en_US }]
+  providers: [{ provide: NZ_I18N, useValue: en_US }, JwtInterceptorProviders, ErrorInterceptorProviders]
 })
 export class AppModule { }
